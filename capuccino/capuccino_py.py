@@ -1,4 +1,4 @@
-from math import sqrt, floor, pow
+import math
 from espresso.espresso_py import Espresso
 
 class Capuccino(Espresso):
@@ -7,20 +7,19 @@ class Capuccino(Espresso):
         self.milk = milk
 
     def prepare_coffee(self):
-        super().prepare_coffee()
-        add_milk = self.quantity + self.milk
+        add_milk = super().prepare_coffee() + self.milk
         print(f'Cantitatea totala cappuccino: {add_milk} grame')
 
     def prepare_time_coffee(self):
-        super().prepare_time_coffee()
-        self.new_time = self.time + sqrt(self.milk)
-        print(f'Timpul de preparare cappuccino: {floor(self.new_time)} secunde')
+        new_time = super().prepare_time_coffee() + math.sqrt(self.milk)
+        print(f'Timpul de preparare cappuccino: {math.floor(new_time)} secunde')
 
     def energy(self):
-        en = self.milk * pow(self.coffee, 2)
-        print(f'Energia totala: {floor(en)} calorii')
+        en = self.milk * math.pow(self.coffee, 2)
+        print(f'Energia totala: {math.floor(en)} calorii')
 
 if __name__ == '__main__':
+
     c = Capuccino(80, 10, 50, 20)
     c.prepare_coffee()
     c.prepare_time_coffee()

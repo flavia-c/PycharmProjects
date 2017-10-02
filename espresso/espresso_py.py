@@ -1,4 +1,4 @@
-from math import pi, floor
+import math
 
 class Espresso:
 
@@ -12,14 +12,15 @@ class Espresso:
         return self.quantity
 
     def prepare_time_coffee(self):
-        self.time = self.quantity / pi
-        return floor(self.time)
+        self.time = self.quantity / math.pi
+        return math.floor(self.time)
 
     def printing(self):
         print(f'Cantitatea totala de espresso: {self.quantity} grame')
-        print(f'Timpul de preparare espresso: {floor(self.time)} secunde')
+        print(f'Timpul de preparare espresso: {math.floor(self.time)} secunde')
 
 if __name__ == '__main__':
+
     e = Espresso(80, 10, 50)
     e.prepare_coffee()
     e.prepare_time_coffee()
